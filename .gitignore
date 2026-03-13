@@ -1,6 +1,9 @@
 # Build outputs
 **/bin/
 **/obj/
+*.zip
+*.dll
+*.pdb
 
 # User/local build settings
 *.user
