@@ -19,6 +19,7 @@ public class KOSpopupStop : MonoBehaviour
     private const string DebugEnabledKey = "DebugEnabled";
 
     private const float RecheckIntervalSeconds = 0.5f;
+    private const float RepeatedDebugSuppressionSeconds = 10f;
 
     private bool localSettingsLoaded;
     private bool hasCapturedSelection;
@@ -27,6 +28,8 @@ public class KOSpopupStop : MonoBehaviour
     private string cachedKnownManagers = string.Empty;
     private Game? lastSeenGame;
     private float nextRecheckAt;
+    private string lastDebugMessage = string.Empty;
+    private float lastDebugAt = float.NegativeInfinity;
 
     private void Start()
     {
@@ -68,6 +71,11 @@ public class KOSpopupStop : MonoBehaviour
             lastSeenGame = HighLogic.CurrentGame;
             nextRecheckAt = 0f;
             LogDebug("Detected game/session change; reapplying suppression state.");
+        }
+
+        if (HighLogic.LoadedSceneIsFlight)
+        {
+            return;
         }
 
         if (HighLogic.CurrentGame != null && Time.unscaledTime >= nextRecheckAt)
@@ -207,7 +215,7 @@ public class KOSpopupStop : MonoBehaviour
             hasCapturedSelection = config.GetValue(LocalSelectionCapturedKey, false);
             cachedSelectedManager = config.GetValue(LocalSelectionKey, string.Empty) ?? string.Empty;
             cachedKnownManagers = config.GetValue(LocalKnownManagersKey, string.Empty) ?? string.Empty;
-            debugEnabled = config.GetValue(DebugEnabledKey, true);
+            debugEnabled = config.GetValue(DebugEnabledKey, false);
             SaveLocalSettings();
         }
         catch (Exception ex)
@@ -216,7 +224,7 @@ public class KOSpopupStop : MonoBehaviour
             hasCapturedSelection = false;
             cachedSelectedManager = string.Empty;
             cachedKnownManagers = string.Empty;
-            debugEnabled = true;
+            debugEnabled = false;
         }
         finally
         {
@@ -248,6 +256,16 @@ public class KOSpopupStop : MonoBehaviour
         {
             return;
         }
+
+        float now = Time.realtimeSinceStartup;
+        if (string.Equals(lastDebugMessage, message, StringComparison.Ordinal)
+            && now - lastDebugAt < RepeatedDebugSuppressionSeconds)
+        {
+            return;
+        }
+
+        lastDebugMessage = message;
+        lastDebugAt = now;
 
         Debug.Log(LogTag + message);
     }
