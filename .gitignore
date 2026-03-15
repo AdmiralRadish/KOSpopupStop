@@ -6,8 +6,8 @@
 *.pdb
 
 # User/local build settings
-*.user
 *.csproj.user
+GameData/
 
 # Visual Studio / VS Code workspace artifacts
 .vs/
@@ -17,11 +17,13 @@
 
 # Rider / ReSharper
 .idea/
-*.DotSettings.user
+KOSpopupStop.user
 
 # NuGet
 *.nupkg
 *.snupkg
+*ns.md
+*.netkan
 
 # OS files
 .DS_Store
@@ -31,3 +33,4 @@ Thumbs.db
 GameData/KOSpopupStop/Plugins/*.dll
 GameData/KOSpopupStop/Plugins/*.pdb
 GameData/KOSpopupStop/Plugins/*.xml
+KSP.log

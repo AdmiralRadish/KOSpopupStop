@@ -186,8 +186,6 @@ public class KOSpopupStop : MonoBehaviour
             {
                 return;
             }
-
-            LogDebug("Applied connectivity manager persistence stabilization pass.");
         }
         catch (Exception ex)
         {

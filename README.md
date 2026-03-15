@@ -17,10 +17,10 @@ kOS shows the popup when:
 This plugin normalizes known handlers and preserves the user-selected handler, so kOS no longer sees a mismatch every load.
 
 ## Build
-1. Copy `kOSConnectivityPopupSuppressor/kOSConnectivityPopupSuppressor.csproj.user.example` to `kOSConnectivityPopupSuppressor/kOSConnectivityPopupSuppressor.csproj.user`.
+1. Copy `KOSpopupStop.example.user` to `KOSpopupStop.csproj.user`.
 2. Set `KSPBT_GameRoot` to your KSP install path.
 3. Build:
-   - `dotnet build kOSConnectivityPopupSuppressor/kOSConnectivityPopupSuppressor.csproj -c Release`
+   - `dotnet build KOSpopupStop.csproj -c Release`
 
 ## Output
 - `GameData/KOSpopupStop/Plugins/KOSpopupStop.dll`
