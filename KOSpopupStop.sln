@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KOSpopupStop", "KOSpopupStop", "{3F22AB8A-E783-2BC8-98BE-56774B914119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOSpopupStop", "KOSpopupStop.csproj", "{75A88358-41A4-5168-AD2B-BA0456E0114A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75A88358-41A4-5168-AD2B-BA0456E0114A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A88358-41A4-5168-AD2B-BA0456E0114A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A88358-41A4-5168-AD2B-BA0456E0114A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A88358-41A4-5168-AD2B-BA0456E0114A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{75A88358-41A4-5168-AD2B-BA0456E0114A} = {3F22AB8A-E783-2BC8-98BE-56774B914119}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DECFDE1B-509A-449C-B91E-7E8B8774F632}
+	EndGlobalSection
+EndGlobal
